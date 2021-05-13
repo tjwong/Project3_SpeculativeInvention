@@ -71,8 +71,8 @@ let bodyFont;
 // Allocate Adventure Manager with states table and interaction tables
 function preload() {
 
-  headlineFont = loadFont('fonts/FogCityGothic-Wide.otf');
-  bodyFont = loadFont('fonts/FogCityGothic-Regular.otf');
+  headlineFont = loadFont('fonts/Adelle_Heavy.otf');
+  bodyFont = loadFont('fonts/Adelle_Reg.otf');
 
   // load all images
   angerImage = loadImage("assets/anger_emoji.png");
@@ -121,7 +121,7 @@ function draw() {
     ;
   }
   else {
-    drawCharacters();
+    // drawCharacters();
   }
   
   // draw the p5.clickables, in front of the mazes but behind the sprites 
@@ -157,6 +157,7 @@ function drawCharacters() {
 function setupClickables() {
   // All clickables to have same effects
   for( let i = 0; i < clickables.length; i++ ) {
+    // clickables[i] = clickableRegular;
     clickables[i].onHover = clickableButtonHover;
     clickables[i].onOutside = clickableButtonOnOutside;    
   }
@@ -176,9 +177,10 @@ function setupClickables() {
   clickables[11].onPress = clCutParks;
 }
 
+
 // tint when mouse is over
 clickableButtonHover = function () {
-  this.color = "#AA33AA";
+  this.color = "#4A5ECE";
   this.noTint = false;
   this.tint = "#FF0000";
 }
@@ -186,7 +188,15 @@ clickableButtonHover = function () {
 // color a light gray if off
 clickableButtonOnOutside = function () {
   // backto our gray color
-  this.color = "#AAAAAA";
+  // this.color = "#AAAAAA";
+  this.color = "#283F6A";
+  this.noTint = false;
+  this.cornerRadius = 0;
+  this.strokeWeight = 5;
+  this.stroke = "#589CCE";
+  this.textFont = bodyFont;
+  this.textColor = "#FFFFFF";
+  this.width = 200;
 }
 
 clickableButtonPressed = function() {
@@ -350,14 +360,14 @@ function loadAllText() {
 // copy the array reference from adventure manager so that code is cleajer
   scenarioRooms = adventureManager.states;
 
-  scenarioRooms[startScreen].setText("Who Pays for it?", "The underground tunnels cost money to maintain. Goomazon threatens to leave the city if they have to pay for all the maintenance work. Who pays for it?");
-  scenarioRooms[goomazonMovesScreen].setText("Do we lure them back?", "Goomazon moves their headquarters to our rival city across the river. They layoff local workers. How should we respond?");
-  scenarioRooms[cityPaysScreen].setText("What do we cut?", "The city budget is getting tanked because of the cost of the tunels. Which programs should we cut?");
-  scenarioRooms[raisedTaxesScreen].setText("How do we help the economy?", "The wealthy leave the city in droves. Restaurants start closing and our tax base is depleted. What do we do?");
-  scenarioRooms[rivalCompanyScreen].setText("It's bad, what do we do?", "The rival company is even worse than Goomazon. In addition to being anti-union, they force everyone to wear silly uniforms, sing happy children's songs and sign the most restrictive NDAs ever.");
-  scenarioRooms[goomazonExpands].setText("Oh-no! Now what to do?", "Goomazon expands its operations. It is now both in your city and the rival city. It's driven out all the local businesses.");
-  scenarioRooms[cityUgly].setText("How can we fix this?", "The city has cut the budget to some of its essential services. It's been a cascading effect. Without arts and adequate transportation, everyone has become depressed. THE END.");
-  scenarioRooms[workersStrike].setText("How do we respond?", "There are massive worker's strikes. The city is shut down. Big labor is angry and riling people up. Thousands of protesters are in the streets.");
+  scenarioRooms[startScreen].setText("The AI that IntelliGenAI has developed is nearly complete! They are planning on launching their first wave of YouAI but are having a hard time deciding who to provide their release to. Who is it distributed to first?");
+  scenarioRooms[goomazonMovesScreen].setText("Goomazon moves their headquarters to our rival city across the river. They layoff local workers. How should we respond?");
+  scenarioRooms[cityPaysScreen].setText("The city budget is getting tanked because of the cost of the tunels. Which programs should we cut?");
+  scenarioRooms[raisedTaxesScreen].setText("The wealthy leave the city in droves. Restaurants start closing and our tax base is depleted. What do we do?");
+  scenarioRooms[rivalCompanyScreen].setText("The rival company is even worse than Goomazon. In addition to being anti-union, they force everyone to wear silly uniforms, sing happy children's songs and sign the most restrictive NDAs ever.");
+  scenarioRooms[goomazonExpands].setText("Goomazon expands its operations. It is now both in your city and the rival city. It's driven out all the local businesses.");
+  scenarioRooms[cityUgly].setText("The city has cut the budget to some of its essential services. It's been a cascading effect. Without arts and adequate transportation, everyone has become depressed. THE END.");
+  scenarioRooms[workersStrike].setText("There are massive worker's strikes. The city is shut down. Big labor is angry and riling people up. Thousands of protesters are in the streets.");
 }
 
 //-------------- SUBCLASSES / YOUR DRAW CODE CAN GO HERE ---------------//
@@ -370,16 +380,14 @@ class ScenarioRoom extends PNGRoom {
   constructor() {
     super();    // call super-class constructor to initialize variables in PNGRoom
 
-    this.titleText = "";
     this.bodyText = "";
   }
 
   // should be called for each room, after adventureManager allocates
-  setText( titleText, bodyText ) {
-    this.titleText = titleText;
+  setText( bodyText ) {
     this.bodyText = bodyText;
-    this.drawY = 360;
-    this.drawX = 52;
+    this.drawY = 170;
+    this.drawX = 200;
   }
 
   // call the PNGRoom superclass's draw function to draw the background image
@@ -396,20 +404,15 @@ class ScenarioRoom extends PNGRoom {
       textFont(headlineFont);
       textSize(36);
 
-      text("How do we feel?", this.drawX , 60);
-
-      // title text
-      textSize(30);
-
-      text(this.titleText, this.drawX , this.drawY);
+      text("How do we feel?", this.drawX , 120);
      
       // Draw text in a box
-      //text(this.titleText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
+      // text(this.titleText, width/6, height/6, this.textBoxWidth, this.textBoxHeight );
     
       textFont(bodyFont);
       textSize(24);
 
-      text(this.bodyText, this.drawX , this.drawY + 60, width - (this.drawX*2),height - (this.drawY+100) );
+      text(this.bodyText, this.drawX , this.drawY, width - (this.drawX*2),height - (this.drawY+100) );
       
       pop();
     }

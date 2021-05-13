@@ -2,9 +2,9 @@ CurrentState,KeyTyped,KeyCode,MouseEvent,ClickableName,MapDirection,NextState
 Splash,,,mouseReleased,,,Instructions
 Instructions,,,mouseReleased,,,Characters
 Characters,,,,StartScenario,,Start
-Start,,,,Start_GoomazonPays,,GoomazonMoves
-Start,,,,Start_CityPays,,CityPays
-Start,,,,Start_RaiseTaxes,,RaisedTaxes
+Start,,,,Start_Techies,,GoomazonMoves
+Start,,,,Start_Government,,CityPays
+Start,,,,Start_Anyone,,RaisedTaxes
 GoomazonMoves,,,,GoomazonMoves_RaiseTaxes,,RaisedTaxes
 GoomazonMoves,,,,GoomazonMoves_CityPays,,CityPays
 GoomazonMoves,,,,GoomazonMoves_BuildRival,,RivalCompany
