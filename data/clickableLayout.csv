@@ -3,11 +3,15 @@ ID,Name,State,PNGFilename,Text,x,y,visible
 1,Start_Techies,Start,,People working in tech,200,300,yes
 2,Start_Government,Start,,The City Government,530,300,yes
 3,Start_Anyone,Start,,Anyone on first come first serve,850,300,yes
-4,GoomazonMoves_CityPays,GoomazonMoves,,Yes: City Pays,100,600,yes
-5,GoomazonMoves_RaiseTaxes,GoomazonMoves,,Yes: Raise Taxes,300,600,yes
-6,GoomazonMoves_BuildRival,GoomazonMoves,,Build a Rival,500,600,yes
-7,GoomazonMoves_IgnoreThem,GoomazonMoves,,Ignore Them,700,600,yes
-8,CityPays_CutTheArts,CityPays,,The Arts,100,600,yes
-9,CityPays_CutTransportation,CityPays,,Transportation,300,600,yes
-10,CityPays_CutCityWages,CityPays,,City Wages,500,600,yes
-11,CityPays_CutParks,CityPays,,Parks,700,600,yes
+4,IntelligenRefuses_End,Techies,,IntelliGen refuses request,200,300,yes
+5,IntelligenAccepts_Secrets,Techies,,IntelliGen accepts request,530,300,yes
+6,Mayor_Approves,Government,,Mayor Man approves,200,300,yes
+7,Mayor_Rejects,Government,,Mayor Man rejects,530,300,yes
+8,Everyone_All,Everyone,,Those with YouAI take action,200,430,yes
+9,Everyone_Senna,Everyone,,Studious Senna takes action,530,430,yes
+10,IntelligenSecrets_Accept,IntelligenSecrets,,Works with Government,200,300,yes
+11,IntelligenSecrets_Expose,IntelligenSecrets,,Exposes Government,530,300,yes
+12,Mayor_Rejects_Overturn,MayorRejects,,IntelliGen’s marketing works,200,300,yes
+13,Mayor_Rejects_MoveAway,MayorRejects,,IntelliGen’s marketing doesn’t work,530,300,yes
+14,Everyone_AllPrivacy,EveryoneAll,,People want privacy,200,350,yes
+15,Everyone_AllFlourish,EveryoneAll,,People don’t mind,530,350,yes
